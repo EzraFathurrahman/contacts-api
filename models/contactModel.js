@@ -1,0 +1,28 @@
+const mongoose=require("mongoose");
+
+const contactSchema=mongoose.Schema({
+    user_id:
+    {
+        type:mongoose.Schema.ObjectId,
+        required:true,
+        ref:"User"
+    },
+    name:
+    {
+     type:String,
+     required:[true,"Please add the contect name here"]   
+    },
+    email:{
+        type: String,
+        required: [true,"Please add your email here"]
+    },
+    phone:{
+        type: String,
+        required: [true,"Please add your age"]
+    } 
+},
+{
+    timestamps:true,
+})
+
+module.exports=mongoose.model("Contact",contactSchema)
